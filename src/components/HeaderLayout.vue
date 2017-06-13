@@ -1,5 +1,6 @@
 <template>
   <div class="header-wrapper">
+
     <div class="tabs tabs-menu">
       <ul>
         <li>
@@ -16,6 +17,7 @@
         </li>
       </ul>
     </div>
+
     <div class="header">
       <div class="logo">
         <svg viewBox="0 0 112 82" class="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -26,7 +28,16 @@
             </text>
         </svg>
       </div>
+    </div> <!-- END header -->
+
+    <div class="hero is-primary" style="background-image: url('static/img/layout/bugaboo-spire.jpg')">
+      <div class="hero-body">
+        <h1 class="title is-1">Patrick Lewis</h1>
+        <h2 class="subtitle is-4">User Experience Developer</h2>
+        <span class="photo-title">Bugaboo Spire, Canada</span>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -52,8 +63,13 @@
     border: none
 
 .tabs a
+  border-bottom: 2px solid transparent
   color: $white-ter
   padding: 0.5em
+  transition: all $speed $easing
+  &:hover
+    border-bottom: 2px solid $grey-lighter
+    color: $grey-lighter
 
 .header
   background: $color-header
@@ -74,8 +90,38 @@
   height: 50px
   width: auto
   transition: transform $speed $easing
-  transform: translate(2.5em, 0.3em)
+  transform: translate(2em, 0.3em)
   @include mquery(small)
     display: inline-block
+
+.hero
+  color: #fff
+  text-align: center
+  height: 80vh
+  // background-image set in template
+  background-position: top center
+  background-repeat: no-repeat
+  background-size: cover
+  position: relative
+  width: 100vw
+  &.is-primary
+    background-blend-mode: hard-light
+    background-color: rgba(0,0,0,0.25)
+
+.hero-body
+  padding-top: 26vh
+
+.title
+  font-weight: $weight-semibold
+
+.hero-body .title,
+.hero-body .subtitle
+  opacity: 1
+  position: relative
+  transition: all 0.3s
+  z-index: 1
+  .sticky-header &
+    opacity: 0
+    transform: translateY(-1em)
 
 </style>

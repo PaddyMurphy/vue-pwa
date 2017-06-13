@@ -3,14 +3,6 @@
 
     <header-layout />
 
-    <div class="hero is-primary" style="background-image: url('static/img/layout/bugaboo-spire.jpg')">
-      <div class="hero-body">
-        <h1 class="title is-1">Patrick Lewis</h1>
-        <h2 class="subtitle is-4">User Experience Developer</h2>
-        <span class="photo-title">Bugaboo Spire, Canada</span>
-      </div>
-    </div>
-
     <section class="section content section--about" id="about">
       <div class="container">
         <h2 class="title is-spaced">About</h2>
@@ -68,53 +60,35 @@
       </div>
     </section>
 
-    <section class="section content section--contact" id="contact">
-      <div class="container">
-        <div class="contact-content">
-          <h2 class="title is-spaced">Contact</h2>
-          <p>
-            Email me at <span style="unicode-bidi:bidi-override; direction: rtl;"> moc.liamg@siwelbkcirtap</span>
-          </p>
-          <ul class="contact-list">
-            <li><a href="https://www.linkedin.com/in/patrick-lewis-4b71484/">LinkedIn</a></li>
-            <li><a href="https://www.flickr.com/photos/paddymurphy">Flickr</a></li>
-            <li><a href="https://dribbble.com/paddymurphy">Dribbble</a></li>
-            <li><a href="https://vimeo.com/paddymurphy">Vimeo</a></li>
-          </ul>
-        </div>
-        <div class="contact-side">
-          <img class="b-lazy contact-photo"
-            src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
-            width="150" height="195"
-            data-src="static/img/layout/patrick.jpg"
-            alt="drawing of Patrick"
-          />
-        </div>
-      </div><!-- END .container -->
-    </section>
+    <contact-layout />
 
     <footer-layout />
   </div>
 </template>
 
 <script>
+import ContactLayout from '@/components/ContactLayout';
 import HeaderLayout from '@/components/HeaderLayout';
 import FooterLayout from '@/components/FooterLayout';
 import LazyBackgroundImages from '@/components/VueLazyBackgroundImage';
 import scrollBreakpoint from 'scroll-breakpoint'; // eslint-disable-line
-// import Smoothscroll from 'smooth-scroll';
-// import Blazy from 'bLazy';
+import Smoothscroll from 'smooth-scroll';
 // import Wallop from 'wallop';
 
 export default {
   name: 'layout',
 
   mounted: function () {
+    // animate scrollto
+    Smoothscroll.init({
+      'easing': 'easeOutQuad',
+      'offset': 40
+    });
+
     // show / hide the top nav
     window.scrollBreakpoint(function () {
       return this.scrollY > 100;
     }, function (isTrue) {
-      // This code will be executed exactly once when you'll reach the breakpoint.
       document.body.classList[isTrue ? 'add' : 'remove']('sticky-header');
     });
   },
@@ -122,49 +96,19 @@ export default {
   components: {
     'lazy-background': LazyBackgroundImages,
     'header-layout': HeaderLayout,
+    'contact-layout': ContactLayout,
     'footer-layout': FooterLayout
   }
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 // import initial variables
 @import '../../node_modules/bulma/sass/utilities/initial-variables'
 // // import custom variables
 @import '../assets/sass/bulma-styles.sass'
 // Import the rest of Bulma
 @import '../../node_modules/bulma/bulma'
-
-.hero
-  color: #fff
-  text-align: center
-  height: 80vh
-  // background-image set in template
-  background-position: top center
-  background-repeat: no-repeat
-  background-size: cover
-  position: relative
-  width: 100vw
-  &.is-primary
-    background-blend-mode: hard-light
-    background-color: rgba(0,0,0,0.25)
-
-.hero-body
-  padding-top: 24vh
-
-.title
-  font-weight: $weight-semibold
-
-.hero-body .title,
-.hero-body .subtitle
-  opacity: 1
-  position: relative
-  transition: all 0.3s
-  z-index: 1
-  .sticky-header &
-    opacity: 0
-    transform: translateY(-1em)
-
 
 .photo-title
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.3)
@@ -183,8 +127,9 @@ export default {
     opacity: 0.8
 
 .section
+  padding: 3em 4em
 
-  .container:not(:last-child)
+  .container
     margin-left: auto
     margin-right: auto
     max-width: $tablet
@@ -213,10 +158,12 @@ export default {
   &--experience
     background: $color-section
 
-  &--contact
-    background: $white
-    display: flex
-    position: relative
+.copyright
+  margin: 0 0 0 2em
 
+.contact-photo
+  width: 100%
+  max-width: 150px
+  height: auto
 
 </style>

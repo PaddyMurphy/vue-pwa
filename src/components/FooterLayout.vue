@@ -15,41 +15,37 @@
 
 <script>
   export default {
-    name: 'footer-layout',
-
-    mounted () {
-      console.log('mounted')
-    }
+    name: 'footer-layout'
   }
 </script>
 
 <style scoped lang="sass">
-  // import initial variables
-  @import '../../node_modules/bulma/sass/utilities/initial-variables'
-  // import custom variables
-  @import '../assets/sass/bulma-styles.sass'
+// import initial variables
+@import '../../node_modules/bulma/sass/utilities/initial-variables'
+// import custom variables
+@import '../assets/sass/bulma-styles.sass'
 
-  footer
-    background: $color-footer
-    color: #CAC9C8
-    display: flex
-    font-size: 0.8em
-    justify-content: flex-end
-    padding: 1em
-    position: relative
-    text-align: right
+footer
+  background: $color-footer
+  color: #CAC9C8
+  display: flex
+  font-size: 0.8em
+  justify-content: flex-end
+  padding: 1em
+  position: relative
+  text-align: right
+  a, a:visited
+    color: $primary-invert
 
-  .copyright
-    margin: 0 0 0 2em
+.copyright
+  margin: 0 0 0 2em
 
-  .svg-mountains
-    fill: $color-footer
-    width: 80px
-    height: auto
-    position: absolute
-    top: 0
-    left: 0
-    transform: translate(4em, -40px)
-
-
+.svg-mountains
+  fill: $color-footer
+  width: 80px
+  height: auto
+  position: absolute
+  top: 0
+  left: 0
+  transform: translate(4em, -40px)
 </style>

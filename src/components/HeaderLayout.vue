@@ -1,22 +1,26 @@
 <template>
   <div class="header-wrapper">
 
-    <div class="tabs tabs-menu">
+    <nav class="tabs tabs-menu">
       <ul>
         <li>
-          <router-link to="#about" data-scroll>About</router-link>
+          <a href="#about" data-scroll>About</a>
+          <!-- <router-link to="#about" data-scroll>About</router-link> -->
         </li>
         <li>
-          <router-link to="#case-study" data-scroll>Case Study</router-link>
+          <a href="#case-study" data-scroll>Case study</a>
+          <!-- <router-link to="#case-study" data-scroll>Case Study</router-link> -->
         </li>
         <li>
-          <router-link to="#experience" data-scroll>Experience</router-link>
+          <a href="#experience" data-scroll>Experience</a>
+         <!--  <router-link to="#experience" data-scroll>Experience</router-link> -->
         </li>
         <li>
-          <router-link to="#contact" data-scroll>Contact</router-link>
+          <a href="#contact" data-scroll>Contact</a>
+          <!-- <router-link to="#contact" data-scroll>Contact</router-link> -->
         </li>
       </ul>
-    </div>
+    </nav>
 
     <div class="header">
       <div class="logo">
@@ -38,12 +42,22 @@
       </div>
     </div>
 
-  </div>
+  </div> <!-- END header-wrapper -->
 </template>
 
 <script>
+  import MenuSpy from 'menuspy'
+
   export default {
-    name: 'header-layout'
+    name: 'header-layout',
+
+    mounted () {
+      const elm = this.$el.querySelector('.tabs-menu');
+      // eslint-disable-next-line
+      const ms = new MenuSpy(elm, {
+        threshold: 50
+      });
+    }
   }
 </script>
 
@@ -61,6 +75,9 @@
   z-index: 99
   ul
     border: none
+  .active a
+    border-bottom: 2px solid $grey-lighter
+    color: $grey-lighter
 
 .tabs a
   border-bottom: 2px solid transparent

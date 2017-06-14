@@ -108,6 +108,7 @@ export default {
 // // import custom variables
 @import '../assets/sass/bulma-styles.sass'
 // Import the rest of Bulma
+// NOTE: only import once here in the container.vue
 @import '../../node_modules/bulma/bulma'
 
 .photo-title

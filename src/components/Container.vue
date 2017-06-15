@@ -19,12 +19,42 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
         <!-- TODO: insert image gallery -->
+        <div class="Wallop Wallop--slide slideshow-projects">
+          <div class="Wallop-list">
+            <div class="Wallop-item" v-for="n of 6">
+              <img
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                class="b-lazy"
+                :data-src="'static/img/layout/ha-onboarding-' + n + '.png'"
+                alt=""
+                width="100%"
+                height="auto"
+              />
+            </div>
+            <button class="Wallop-buttonPrevious">Previous</button>
+            <button class="Wallop-buttonNext">Next</button>
+          </div>
+        </div>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
         <!-- TODO: insert image gallery -->
+        <div class="Wallop Wallop--slide slideshow-mobile">
+          <div class="Wallop-list">
+            <div class="Wallop-item" v-for="n of 6">
+              <img
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                class="b-lazy"
+                :data-src="'static/img/layout/ha-mobile-' + n + '.jpg'"
+                alt=""
+              />
+            </div>
+            <button class="Wallop-buttonPrevious">Previous</button>
+            <button class="Wallop-buttonNext">Next</button>
+          </div>
+        </div>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div> <!-- END container -->
@@ -73,7 +103,7 @@ import FooterLayout from '@/components/FooterLayout';
 import LazyBackgroundImages from '@/components/VueLazyBackgroundImage';
 import scrollBreakpoint from 'scroll-breakpoint'; // eslint-disable-line
 import Smoothscroll from 'smooth-scroll';
-// import Wallop from 'wallop';
+import Wallop from 'wallop';
 
 export default {
   name: 'layout',
@@ -84,6 +114,15 @@ export default {
       'easing': 'easeOutQuad',
       'offset': 40
     });
+
+    // ha desktop slideshow
+    var wallopElProject = document.querySelector('.slideshow-projects');
+    // eslint-disable-next-line
+    this.wallopProject = new Wallop(wallopElProject);
+
+    var wallopElMobile = document.querySelector('.slideshow-mobile');
+    // eslint-disable-next-line
+    this.wallopElMobile = new Wallop(wallopElMobile);
 
     // show / hide the top nav
     window.scrollBreakpoint(function () {
@@ -110,6 +149,8 @@ export default {
 // Import the rest of Bulma
 // NOTE: only import once here in the container.vue
 @import '../../node_modules/bulma/bulma'
+@import '../../node_modules/wallop/css/wallop.css';
+@import '../../node_modules/wallop/css/wallop--slide.css';
 
 .photo-title
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.3)
@@ -167,4 +208,65 @@ export default {
   max-width: 150px
   height: auto
 
+// slideshows
+// Wallop slider in case study
+.Wallop-buttonNext,
+.Wallop-buttonPrevious
+  background: rgba(0,0,0,0.1)
+  border-radius: 20px
+  border: none
+  cursor: pointer
+  height: 40px
+  position: absolute
+  text-indent: -9999px
+  top: 50%
+  transform: translateY(-50%)
+  transition: all 0.25s
+  width: 40px
+  z-index: 9
+  &:hover
+    background: rgba(0,0,0,0.3)
+  &:before
+    color: rgba(0,0,0,0.6)
+
+.Wallop-buttonNext:before,
+.Wallop-buttonPrevious:before
+  color: rgba(0,0,0,0.4)
+  font-size: 25px
+  left: 0
+  line-height: 0
+  position: absolute
+  text-align: center
+  text-indent: 0
+  top: 50%
+  transition: all 0.25s
+  width: 100%
+
+.Wallop-buttonNext:before
+  content: "\276F"
+
+.Wallop-buttonPrevious:before
+  content: "\276E"
+
+.Wallop-buttonPrevious
+  left: 1em
+
+.Wallop-buttonNext
+  right: 1em
+
+// this is the .Wallop containe
+.slideshow-projects,
+.slideshow-mobile
+  box-shadow: 0 0 0 2px $color-header
+  margin: 2em auto 3em
+  max-width: 700px
+  .Wallop-list
+    background: #fff
+
+  .Wallop-item
+    text-align: center
+
+
+.slideshow-mobile
+  width: 350px
 </style>

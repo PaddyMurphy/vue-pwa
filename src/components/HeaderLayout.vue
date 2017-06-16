@@ -8,12 +8,12 @@
           <!-- <router-link to="#about" data-scroll>About</router-link> -->
         </li>
         <li>
-          <a href="#case-study" data-scroll>Case study</a>
-          <!-- <router-link to="#case-study" data-scroll>Case Study</router-link> -->
-        </li>
-        <li>
           <a href="#experience" data-scroll>Experience</a>
          <!--  <router-link to="#experience" data-scroll>Experience</router-link> -->
+        </li>
+        <li>
+          <a href="#case-study" data-scroll>Case study</a>
+          <!-- <router-link to="#case-study" data-scroll>Case Study</router-link> -->
         </li>
         <li>
           <a href="#contact" data-scroll>Contact</a>

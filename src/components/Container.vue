@@ -6,9 +6,50 @@
     <section class="section content section--about" id="about">
       <div class="container">
         <h2 class="title is-spaced">About</h2>
-        <p>UX/UI Developer with over 10 years experience creating web applications. I enjoy working collaboratively with a team to design, prototype, test and deliver products.</p>
+        <p>UX/UI Developer with over 10 years experience creating web applications. I enjoy working collaboratively with a team to design, prototype, test and deliver products. When not behind the computer I am usually climbing, kayaking or at Barton Springs.</p>
       </div>
     </section>
+
+    <section class="section content section--experience" id="experience">
+      <div class="container">
+        <h2 class="title is-spaced">Experience</h2>
+        <h3 class="subtitle">UX Developer at HomeAway <small>(2015 - 2016)</small></h3>
+        <ul>
+          <li>Helped establish the new Design Technologist role within the UX Design team.</li>
+          <li>Coloborated with designers and product managers to create testable prototypes.</li>
+          <li>Participated in user testing to create new iterations based the results</li>
+          <li>Joined team responsible for developing the final product to help with creating the experience</li>
+        </ul>
+
+        <h3 class="subtitle">UI Developer at HomeAway <small>(2011 - 2015)</small></h3>
+        <ul>
+          <li>Lead UI developer on property management team for 3 years.</li>
+          <li>Created property management dashboard with tools enabling the management of many properties at once.</li>
+          <li>Built early products primarily with backbone, handlebars, and an in-house 'thin-ui' java based system which allows decoupling of the UI and backend applications.</li>
+          <li>Adopted React later to replace the UI stack</li>
+        </ul>
+
+        <h3 class="subtitle">Front-end Developer at BancVue <small>(2009 - 2011)</small></h3>
+        <ul>
+          <li>Create credit union web sites using html, css, Javascript and a content management system.</li>
+          <li>Introduced the use of SASS, css3 and methods to ensure cross browser consistency.</li>
+          <li>Improved the efficiency, quality and speed of sites created.</li>
+        </ul>
+
+        <h3 class="subtitle">Additional experience</h3>
+        <ul>
+          <li>Javascript along with React, Vuejs, and webpack</li>
+          <li>css and pre / post processors</li>
+          <li>semantic and accessible html5</li>
+          <li>UX best practices</li>
+          <li>4 years United States Marine Corps</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="photo-window">
+      <span class="photo-title">Devils River, Texas</span>
+    </div>
 
     <section class="section content section--casestudy" id="case-study">
       <div class="container">
@@ -66,29 +107,6 @@
       loadingImage="static/img/layout/blank.png"
       errorImage="static/img/layout/blank.png">
     </lazy-background>
-
-    <div class="photo-window">
-      <span class="photo-title">Devils River, Texas</span>
-    </div>
-
-    <section class="section content section--experience" id="experience">
-      <div class="container">
-        <h2 class="title is-spaced">Experience</h2>
-        <h3 class="subtitle">UX Developer at HomeAway <small>(2011 - 2016)</small></h3>
-        <p>
-            desc..
-        </p>
-
-        <h3 class="subtitle">Front-end Developer at BancVue <small>(2009 - 2011)</small></h3>
-        <ul>
-          <li>Create credit union web sites using html, css, Javascript and a content management system.</li>
-          <li>Introduced the use of SASS, css3 and methods to ensure cross browser consistency.</li>
-          <li>Improved the efficiency, quality and speed of sites created.</li>
-        </ul>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-    </section>
 
     <contact-layout />
 
@@ -259,7 +277,7 @@ export default {
 .slideshow-mobile
   box-shadow: 0 0 0 2px $color-header
   margin: 2em auto 3em
-  max-width: 700px
+  max-width: $tablet
   .Wallop-list
     background: #fff
 
